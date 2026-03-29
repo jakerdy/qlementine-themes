@@ -43,7 +43,7 @@ To generate only the screenshots that do not exist yet:
 PYTHONPATH=python-qt/src python gallery/src/generate_gallery.py
 ```
 
-The generator skips any existing PNG by default, which is useful after adding a new theme because it leaves already-reviewed screenshots untouched.
+The script creates `gallery/img/` automatically if it does not exist. It skips any existing PNG by default, which is useful after adding a new theme because it leaves already-reviewed screenshots untouched.
 
 To rebuild every screenshot regardless of whether the PNG already exists:
 

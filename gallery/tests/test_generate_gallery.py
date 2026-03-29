@@ -6,12 +6,14 @@ import unittest
 from pathlib import Path
 
 TEST_REPO_ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(TEST_REPO_ROOT / "python-qt" / "src"))
-sys.path.insert(0, str(TEST_REPO_ROOT / "gallery" / "src"))
+sys.path.append(str(TEST_REPO_ROOT / "python-qt" / "src"))
+sys.path.append(str(TEST_REPO_ROOT / "gallery" / "src"))
 
 from jakerdy.qlementine_themes import ThemeId, available_themes
 
 from generate_gallery import DEFAULT_IMAGE_DIR, REPO_ROOT, jobs_to_render, parse_args, resolve_themes, screenshot_jobs
+
+README_IMAGE_HEADER = "| Theme | Style | Description | `<img>` |"
 
 
 class GenerateGalleryTests(unittest.TestCase):
@@ -66,7 +68,7 @@ class GenerateGalleryTests(unittest.TestCase):
     def test_readme_contains_embedded_gallery_images(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
 
-        self.assertIn("| Theme | Style | Description | `<img>` |", readme_text)
+        self.assertIn(README_IMAGE_HEADER, readme_text)
         for job in screenshot_jobs():
             self.assertIn(f"]({job.relative_path.as_posix()})", readme_text)
             self.assertIn("![", readme_text)

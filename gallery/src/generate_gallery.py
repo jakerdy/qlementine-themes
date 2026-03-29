@@ -7,7 +7,13 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Sequence
 
-from jakerdy.qlementine_themes import QtBinding, ThemeId, apply_theme, available_themes, load_theme
+from jakerdy.qlementine_themes import (
+    QtBinding,
+    ThemeId,
+    apply_theme,
+    available_themes,
+    load_theme,
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_IMAGE_DIR = REPO_ROOT / "gallery" / "img"
