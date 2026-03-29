@@ -8,32 +8,34 @@ A set of beautiful and varied [Qlementine](https://github.com/oclero/qlementine)
 
 ## Themes
 
-| Theme | Style | Description |
-|-------|-------|-------------|
-| [Light](themes/light.json) | Light | Clean, classic light theme — the official Qlementine default |
-| [Dark](themes/dark.json) | Dark | Neutral dark theme inspired by VS Code Dark+ |
-| [Nord](themes/nord.json) | Dark | Arctic, north-bluish color palette from the [Nord](https://www.nordtheme.com/) project |
-| [Solarized Dark](themes/solarized-dark.json) | Dark | Dark variant of Ethan Schoonover's popular [Solarized](https://ethanschoonover.com/solarized/) palette |
-| [Solarized Light](themes/solarized-light.json) | Light | Light variant of Ethan Schoonover's popular [Solarized](https://ethanschoonover.com/solarized/) palette |
-| [Dracula](themes/dracula.json) | Dark | Dark theme with vivid purple accents from the [Dracula](https://draculatheme.com/) project |
-| [Tokyo Night](themes/tokyo-night.json) | Dark | Dark theme inspired by the lights of Tokyo at night, featuring cool blue accents |
-| [Gruvbox](themes/gruvbox.json) | Dark | Warm retro groove palette inspired by the [Gruvbox](https://github.com/morhetz/gruvbox) project |
-| [Shrek](themes/shrek.json) | Dark | Playful swamp-green theme with earthy ogre-inspired tones |
-| [Alpine](themes/alpine.json) | Light | Crisp high-altitude palette with snowy backgrounds and cool blue accents |
-| [Hello Kitty](themes/hello-kitty.json) | Light | Soft pastel pink theme with candy-colored highlights |
-| [Nixie Dawn](themes/nixie-dawn.json) | Dark | Warm dark theme inspired by glowing nixie tubes, with deep brown backgrounds and vivid orange accents |
-| [Khaki](themes/khaki.json) | Dark | Rugged military-style interface palette with muted olive, sand, and khaki tones |
-| [Tron Light](themes/tron-light.json) | Light | Bright futuristic palette with icy cyan highlights and warm orange contrasts inspired by Tron Legacy |
-| [Tron Dark](themes/tron-dark.json) | Dark | Dark companion to Tron Light with neon cyan accents and glowing amber controls |
-| [Mint Cocktail](themes/mint-cocktail.json) | Light | Refreshing mint-based theme balanced by vivid purple accent colors |
-| [Old Terminal](themes/old-terminal.json) | Dark | High-contrast black-and-green terminal look with enough midtones to stay readable |
-| [Cold Light](themes/cold-light.json) | Light | Cool light variant with blue-tinted neutrals and crisp frosty accents |
-| [Cold Dark](themes/cold-dark.json) | Dark | Cool dark variant with steel-blue surfaces and icy highlights |
-| [Neutral Light](themes/neutral-light.json) | Light | Balanced low-saturation light palette for understated everyday interfaces |
-| [Neutral Dark](themes/neutral-dark.json) | Dark | Balanced low-saturation dark palette with restrained contrast and slate accents |
-| [Warm Light](themes/warm-light.json) | Light | Warm cream and sand palette suited to softer, less clinical light UIs |
-| [Warm Dark](themes/warm-dark.json) | Dark | Warm brown-leaning dark palette with amber accents and softened contrast |
-| [GrayTable](themes/graytable.json) | Light | Low-contrast gray theme inspired by the classic light 3ds Max interface |
+| Theme | Style | Description | Screenshot |
+|-------|-------|-------------|------------|
+| [Light](themes/light.json) | Light | Clean, classic light theme — the official Qlementine default | [PNG](galery/img/light.png) |
+| [Dark](themes/dark.json) | Dark | Neutral dark theme inspired by VS Code Dark+ | [PNG](galery/img/dark.png) |
+| [Nord](themes/nord.json) | Dark | Arctic, north-bluish color palette from the [Nord](https://www.nordtheme.com/) project | [PNG](galery/img/nord.png) |
+| [Solarized Dark](themes/solarized-dark.json) | Dark | Dark variant of Ethan Schoonover's popular [Solarized](https://ethanschoonover.com/solarized/) palette | [PNG](galery/img/solarized-dark.png) |
+| [Solarized Light](themes/solarized-light.json) | Light | Light variant of Ethan Schoonover's popular [Solarized](https://ethanschoonover.com/solarized/) palette | [PNG](galery/img/solarized-light.png) |
+| [Dracula](themes/dracula.json) | Dark | Dark theme with vivid purple accents from the [Dracula](https://draculatheme.com/) project | [PNG](galery/img/dracula.png) |
+| [Tokyo Night](themes/tokyo-night.json) | Dark | Dark theme inspired by the lights of Tokyo at night, featuring cool blue accents | [PNG](galery/img/tokyo-night.png) |
+| [Gruvbox](themes/gruvbox.json) | Dark | Warm retro groove palette inspired by the [Gruvbox](https://github.com/morhetz/gruvbox) project | [PNG](galery/img/gruvbox.png) |
+| [Shrek](themes/shrek.json) | Dark | Playful swamp-green theme with earthy ogre-inspired tones | [PNG](galery/img/shrek.png) |
+| [Alpine](themes/alpine.json) | Light | Crisp high-altitude palette with snowy backgrounds and cool blue accents | [PNG](galery/img/alpine.png) |
+| [Hello Kitty](themes/hello-kitty.json) | Light | Soft pastel pink theme with candy-colored highlights | [PNG](galery/img/hello-kitty.png) |
+| [Nixie Dawn](themes/nixie-dawn.json) | Dark | Warm dark theme inspired by glowing nixie tubes, with deep brown backgrounds and vivid orange accents | [PNG](galery/img/nixie-dawn.png) |
+| [Khaki](themes/khaki.json) | Dark | Rugged military-style interface palette with muted olive, sand, and khaki tones | [PNG](galery/img/khaki.png) |
+| [Tron Light](themes/tron-light.json) | Light | Bright futuristic palette with icy cyan highlights and warm orange contrasts inspired by Tron Legacy | [PNG](galery/img/tron-light.png) |
+| [Tron Dark](themes/tron-dark.json) | Dark | Dark companion to Tron Light with neon cyan accents and glowing amber controls | [PNG](galery/img/tron-dark.png) |
+| [Mint Cocktail](themes/mint-cocktail.json) | Light | Refreshing mint-based theme balanced by vivid purple accent colors | [PNG](galery/img/mint-cocktail.png) |
+| [Old Terminal](themes/old-terminal.json) | Dark | High-contrast black-and-green terminal look with enough midtones to stay readable | [PNG](galery/img/old-terminal.png) |
+| [Cold Light](themes/cold-light.json) | Light | Cool light variant with blue-tinted neutrals and crisp frosty accents | [PNG](galery/img/cold-light.png) |
+| [Cold Dark](themes/cold-dark.json) | Dark | Cool dark variant with steel-blue surfaces and icy highlights | [PNG](galery/img/cold-dark.png) |
+| [Neutral Light](themes/neutral-light.json) | Light | Balanced low-saturation light palette for understated everyday interfaces | [PNG](galery/img/neutral-light.png) |
+| [Neutral Dark](themes/neutral-dark.json) | Dark | Balanced low-saturation dark palette with restrained contrast and slate accents | [PNG](galery/img/neutral-dark.png) |
+| [Warm Light](themes/warm-light.json) | Light | Warm cream and sand palette suited to softer, less clinical light UIs | [PNG](galery/img/warm-light.png) |
+| [Warm Dark](themes/warm-dark.json) | Dark | Warm brown-leaning dark palette with amber accents and softened contrast | [PNG](galery/img/warm-dark.png) |
+| [GrayTable](themes/graytable.json) | Light | Low-contrast gray theme inspired by the classic light 3ds Max interface | [PNG](galery/img/graytable.png) |
+
+Gallery screenshots are generated by [`galery/src/generate_gallery.py`](galery/src/generate_gallery.py) and written to [`galery/img/`](galery/img/).
 
 ## Usage
 
