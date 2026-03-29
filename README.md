@@ -17,6 +17,10 @@ A set of beautiful and varied [Qlementine](https://github.com/oclero/qlementine)
 | [Solarized Light](themes/solarized-light.json) | Light | Light variant of Ethan Schoonover's popular [Solarized](https://ethanschoonover.com/solarized/) palette |
 | [Dracula](themes/dracula.json) | Dark | Dark theme with vivid purple accents from the [Dracula](https://draculatheme.com/) project |
 | [Tokyo Night](themes/tokyo-night.json) | Dark | Dark theme inspired by the lights of Tokyo at night, featuring cool blue accents |
+| [Gruvbox](themes/gruvbox.json) | Dark | Warm retro groove palette inspired by the [Gruvbox](https://github.com/morhetz/gruvbox) project |
+| [Shrek](themes/shrek.json) | Dark | Playful swamp-green theme with earthy ogre-inspired tones |
+| [Alpine](themes/alpine.json) | Light | Crisp high-altitude palette with snowy backgrounds and cool blue accents |
+| [Hello Kitty](themes/hello-kitty.json) | Light | Soft pastel pink theme with candy-colored highlights |
 
 ## Usage
 
