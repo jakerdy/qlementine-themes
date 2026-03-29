@@ -4,140 +4,70 @@
     "name": "Solarized Dark",
     "version": "1.0.0"
   },
-
   "backgroundColorMain1": "#073642",
   "backgroundColorMain2": "#002b36",
   "backgroundColorMain3": "#0d3d4d",
   "backgroundColorMain4": "#134454",
-
   "backgroundColorWorkspace": "#001e28",
   "backgroundColorTabBar": "#073642",
-
   "borderColor": "#1a4f5c",
   "borderColorDisabled": "#073642",
   "borderColorHovered": "#275e6d",
   "borderColorPressed": "#336b7a",
-
   "focusColor": "#268bd266",
-
   "neutralColor": "#1a4f5c",
   "neutralColorHovered": "#1f5d6b",
   "neutralColorPressed": "#256c7c",
   "neutralColorDisabled": "#073642",
-
   "primaryColor": "#268bd2",
   "primaryColorHovered": "#33a0e5",
   "primaryColorPressed": "#41aff0",
   "primaryColorDisabled": "#0d3a5a",
-
   "primaryAlternativeColor": "#1a75b2",
   "primaryAlternativeColorDisabled": "#0a2840",
   "primaryAlternativeColorHovered": "#1e83c5",
   "primaryAlternativeColorPressed": "#2391d8",
-
   "primaryColorForeground": "#eee8d5",
   "primaryColorForegroundDisabled": "#586e75",
   "primaryColorForegroundHovered": "#fdf6e3",
   "primaryColorForegroundPressed": "#fdf6e3",
-
   "secondaryColor": "#839496",
   "secondaryColorHovered": "#93a1a1",
   "secondaryColorPressed": "#a8b5b7",
   "secondaryColorDisabled": "#3d5a62",
-
   "secondaryAlternativeColor": "#586e75",
   "secondaryAlternativeColorDisabled": "#2d4a52",
   "secondaryAlternativeColorHovered": "#627b83",
   "secondaryAlternativeColorPressed": "#6d8890",
-
   "secondaryColorForeground": "#002b36",
   "secondaryColorForegroundDisabled": "#073642",
   "secondaryColorForegroundHovered": "#002b36",
   "secondaryColorForegroundPressed": "#002b36",
-
   "semiTransparentColor1": "#ffffff0a",
   "semiTransparentColor2": "#ffffff14",
   "semiTransparentColor3": "#ffffff1e",
   "semiTransparentColor4": "#ffffff28",
-
   "shadowColor1": "#00000040",
   "shadowColor2": "#00000060",
   "shadowColor3": "#00000080",
-
   "statusColorError": "#dc322f",
   "statusColorErrorHovered": "#e54040",
   "statusColorErrorPressed": "#ee5050",
   "statusColorErrorDisabled": "#3d0e0d",
-
   "statusColorForeground": "#fdf6e3",
   "statusColorForegroundHovered": "#fdf6e3",
   "statusColorForegroundPressed": "#fdf6e3",
   "statusColorForegroundDisabled": "#839496cc",
-
   "statusColorInfo": "#268bd2",
   "statusColorInfoHovered": "#33a0e5",
   "statusColorInfoPressed": "#41aff0",
   "statusColorInfoDisabled": "#0d3a5a",
-
   "statusColorSuccess": "#859900",
   "statusColorSuccessHovered": "#92a800",
   "statusColorSuccessPressed": "#9fb500",
   "statusColorSuccessDisabled": "#2a3000",
-
   "statusColorWarning": "#b58900",
   "statusColorWarningHovered": "#c89800",
   "statusColorWarningPressed": "#dba800",
-  "statusColorWarningDisabled": "#3a2c00",
-
-  "useSystemFont": false,
-
-  "fontSize": 12,
-  "fontSizeMonospace": 13,
-  "fontSizeH1": 34,
-  "fontSizeH2": 26,
-  "fontSizeH3": 22,
-  "fontSizeH4": 18,
-  "fontSizeH5": 14,
-  "fontSizeS1": 10,
-
-  "spacing": 8,
-  "iconExtent": 16,
-
-  "animationDuration": 192,
-  "focusAnimationDuration": 384,
-  "sliderAnimationDuration": 96,
-
-  "borderRadius": 6.0,
-  "checkBoxBorderRadius": 4.0,
-  "menuItemBorderRadius": 4.0,
-  "menuBarItemBorderRadius": 2.0,
-
-  "borderWidth": 1,
-  "focusBorderWidth": 2,
-
-  "controlHeightLarge": 28,
-  "controlHeightMedium": 24,
-  "controlHeightSmall": 16,
-  "controlDefaultWidth": 96,
-
-  "dialMarkLength": 4,
-  "dialMarkThickness": 2,
-  "dialTickLength": 4,
-  "dialTickSpacing": 4,
-  "dialGrooveThickness": 4,
-
-  "sliderTickSize": 3,
-  "sliderTickSpacing": 2,
-  "sliderTickThickness": 1,
-  "sliderGrooveHeight": 4,
-
-  "progressBarGrooveHeight": 6,
-
-  "scrollBarThicknessFull": 12,
-  "scrollBarThicknessSmall": 6,
-  "scrollBarMargin": 0,
-
-  "tabBarPaddingTop": 4,
-  "tabBarTabMaxWidth": 0,
-  "tabBarTabMinWidth": 0
+  "statusColorWarningDisabled": "#3a2c00"
 }

@@ -37,7 +37,14 @@ A set of beautiful and varied [Qlementine](https://github.com/oclero/qlementine)
 
 ## Usage
 
-Copy any `.json` theme file into your project and load it using Qlementine's `ThemeManager`:
+Theme files are now split into:
+
+- [`themes/_common_.json`](themes/_common_.json) — shared common defaults (numeric parameters and other non-palette settings that are identical across themes)
+- `themes/*.json` — per-theme files that define only `meta` and color palette values
+
+If your application supports merging JSON objects, merge `_common_.json` with the selected theme file before loading it into Qlementine. If you only need the palette for a custom workflow, you can read the theme file by itself.
+
+After merging, load the resulting JSON using Qlementine's `ThemeManager`:
 
 ```cpp
 #include <oclero/qlementine/style/QlementineStyle.hpp>
@@ -52,8 +59,12 @@ style->setThemeJsonPath(":/path/to/theme.json");
 
 Themes are JSON files. All keys are optional — missing keys fall back to the built-in defaults.
 
+- Shared non-palette defaults live in [`themes/_common_.json`](themes/_common_.json).
+- Individual theme files intentionally contain only **metadata** and **palette** values.
 - **Colors** are hexadecimal strings: `"#rrggbb"` or `"#rrggbbaa"` (with alpha).
 - **Metadata** is a nested object under the `"meta"` key.
 - **Booleans**, **integers**, and **doubles** are used for layout and animation properties.
+
+When adding a new theme to this repository, define only the `meta` block and the palette entries in the theme file. Put shared common defaults into `_common_.json` instead of copying them into every theme.
 
 See the [full theme documentation](https://oclero.github.io/qlementine/theme/) for the complete list of available keys.

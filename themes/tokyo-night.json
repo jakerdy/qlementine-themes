@@ -4,140 +4,70 @@
     "name": "Tokyo Night",
     "version": "1.0.0"
   },
-
   "backgroundColorMain1": "#292e42",
   "backgroundColorMain2": "#1a1b26",
   "backgroundColorMain3": "#1f2335",
   "backgroundColorMain4": "#24283b",
-
   "backgroundColorWorkspace": "#13131a",
   "backgroundColorTabBar": "#1f2335",
-
   "borderColor": "#292e42",
   "borderColorDisabled": "#1f2335",
   "borderColorHovered": "#3b4261",
   "borderColorPressed": "#4a5283",
-
   "focusColor": "#7aa2f766",
-
   "neutralColor": "#292e42",
   "neutralColorHovered": "#313650",
   "neutralColorPressed": "#394070",
   "neutralColorDisabled": "#1f2335",
-
   "primaryColor": "#7aa2f7",
   "primaryColorHovered": "#87acf8",
   "primaryColorPressed": "#95b7f9",
   "primaryColorDisabled": "#253a6d",
-
   "primaryAlternativeColor": "#6090e0",
   "primaryAlternativeColorDisabled": "#1e3060",
   "primaryAlternativeColorHovered": "#6c9ce8",
   "primaryAlternativeColorPressed": "#78a8ef",
-
   "primaryColorForeground": "#1a1b26",
   "primaryColorForegroundDisabled": "#505888",
   "primaryColorForegroundHovered": "#1a1b26",
   "primaryColorForegroundPressed": "#1a1b26",
-
   "secondaryColor": "#c0caf5",
   "secondaryColorHovered": "#cdd5f7",
   "secondaryColorPressed": "#dae0f9",
   "secondaryColorDisabled": "#3b4261",
-
   "secondaryAlternativeColor": "#a9b1d6",
   "secondaryAlternativeColorDisabled": "#3b4261",
   "secondaryAlternativeColorHovered": "#b3bbdb",
   "secondaryAlternativeColorPressed": "#bdc6e0",
-
   "secondaryColorForeground": "#1a1b26",
   "secondaryColorForegroundDisabled": "#3b4261",
   "secondaryColorForegroundHovered": "#1a1b26",
   "secondaryColorForegroundPressed": "#1a1b26",
-
   "semiTransparentColor1": "#ffffff0a",
   "semiTransparentColor2": "#ffffff19",
   "semiTransparentColor3": "#ffffff21",
   "semiTransparentColor4": "#ffffff28",
-
   "shadowColor1": "#00000040",
   "shadowColor2": "#00000060",
   "shadowColor3": "#00000080",
-
   "statusColorError": "#f7768e",
   "statusColorErrorHovered": "#f8849a",
   "statusColorErrorPressed": "#f993a7",
   "statusColorErrorDisabled": "#4a1e28",
-
   "statusColorForeground": "#1a1b26",
   "statusColorForegroundHovered": "#1a1b26",
   "statusColorForegroundPressed": "#1a1b26",
   "statusColorForegroundDisabled": "#c0caf580",
-
   "statusColorInfo": "#7dcfff",
   "statusColorInfoHovered": "#8dd5ff",
   "statusColorInfoPressed": "#9ddcff",
   "statusColorInfoDisabled": "#1e3f50",
-
   "statusColorSuccess": "#9ece6a",
   "statusColorSuccessHovered": "#acd67c",
   "statusColorSuccessPressed": "#badf8e",
   "statusColorSuccessDisabled": "#2a3e1d",
-
   "statusColorWarning": "#e0af68",
   "statusColorWarningHovered": "#e6bc79",
   "statusColorWarningPressed": "#ecca8a",
-  "statusColorWarningDisabled": "#3d3018",
-
-  "useSystemFont": false,
-
-  "fontSize": 12,
-  "fontSizeMonospace": 13,
-  "fontSizeH1": 34,
-  "fontSizeH2": 26,
-  "fontSizeH3": 22,
-  "fontSizeH4": 18,
-  "fontSizeH5": 14,
-  "fontSizeS1": 10,
-
-  "spacing": 8,
-  "iconExtent": 16,
-
-  "animationDuration": 192,
-  "focusAnimationDuration": 384,
-  "sliderAnimationDuration": 96,
-
-  "borderRadius": 6.0,
-  "checkBoxBorderRadius": 4.0,
-  "menuItemBorderRadius": 4.0,
-  "menuBarItemBorderRadius": 2.0,
-
-  "borderWidth": 1,
-  "focusBorderWidth": 2,
-
-  "controlHeightLarge": 28,
-  "controlHeightMedium": 24,
-  "controlHeightSmall": 16,
-  "controlDefaultWidth": 96,
-
-  "dialMarkLength": 4,
-  "dialMarkThickness": 2,
-  "dialTickLength": 4,
-  "dialTickSpacing": 4,
-  "dialGrooveThickness": 4,
-
-  "sliderTickSize": 3,
-  "sliderTickSpacing": 2,
-  "sliderTickThickness": 1,
-  "sliderGrooveHeight": 4,
-
-  "progressBarGrooveHeight": 6,
-
-  "scrollBarThicknessFull": 12,
-  "scrollBarThicknessSmall": 6,
-  "scrollBarMargin": 0,
-
-  "tabBarPaddingTop": 4,
-  "tabBarTabMaxWidth": 0,
-  "tabBarTabMinWidth": 0
+  "statusColorWarningDisabled": "#3d3018"
 }
