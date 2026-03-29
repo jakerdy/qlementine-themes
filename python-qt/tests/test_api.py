@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
 
 from jakerdy.qlementine_themes import (
     ThemeId,
@@ -13,6 +14,18 @@ from jakerdy.qlementine_themes import (
 
 
 class ThemeApiTests(unittest.TestCase):
+    def test_source_theme_directory_is_a_symlink_to_repo_themes(self) -> None:
+        source_themes_dir = (
+            Path(__file__).resolve().parents[1]
+            / "src"
+            / "jakerdy"
+            / "qlementine_themes"
+            / "themes"
+        )
+
+        self.assertTrue(source_themes_dir.is_symlink())
+        self.assertEqual(source_themes_dir.resolve(), Path(__file__).resolve().parents[2] / "themes")
+
     def test_available_themes_matches_enum(self) -> None:
         self.assertEqual(available_themes(), tuple(sorted(ThemeId, key=lambda item: item.value)))
 
