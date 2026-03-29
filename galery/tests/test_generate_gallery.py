@@ -34,12 +34,12 @@ class GenerateGalleryTests(unittest.TestCase):
         self.assertTrue((REPO_ROOT / "README.md").is_file())
         self.assertEqual(REPO_ROOT.name, "qlementine-themes")
 
-    def test_readme_contains_relative_links_for_gallery_images(self) -> None:
+    def test_readme_contains_embedded_gallery_images(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
 
-        self.assertIn("| Theme | Style | Description | Screenshot |", readme_text)
+        self.assertIn("| Theme | Style | Description | `<img>` |", readme_text)
         for job in screenshot_jobs():
-            self.assertIn(job.relative_path.as_posix(), readme_text)
+            self.assertIn(f'<img src="{job.relative_path.as_posix()}"', readme_text)
 
 
 if __name__ == "__main__":
