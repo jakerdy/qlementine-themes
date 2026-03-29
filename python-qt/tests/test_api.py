@@ -15,16 +15,13 @@ from jakerdy.qlementine_themes import (
 
 class ThemeApiTests(unittest.TestCase):
     def test_source_theme_directory_is_a_symlink_to_repo_themes(self) -> None:
-        source_themes_dir = (
-            Path(__file__).resolve().parents[1]
-            / "src"
-            / "jakerdy"
-            / "qlementine_themes"
-            / "themes"
+        python_qt_dir = next(
+            parent for parent in Path(__file__).resolve().parents if (parent / "pyproject.toml").is_file()
         )
+        source_themes_dir = python_qt_dir / "src" / "jakerdy" / "qlementine_themes" / "themes"
 
         self.assertTrue(source_themes_dir.is_symlink())
-        self.assertEqual(source_themes_dir.resolve(), Path(__file__).resolve().parents[2] / "themes")
+        self.assertEqual(source_themes_dir.resolve(), python_qt_dir.parent / "themes")
 
     def test_available_themes_matches_enum(self) -> None:
         self.assertEqual(available_themes(), tuple(sorted(ThemeId, key=lambda item: item.value)))

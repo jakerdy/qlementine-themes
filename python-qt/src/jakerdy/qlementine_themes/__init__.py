@@ -163,9 +163,11 @@ def _theme_path(theme_name: str) -> Path:
     if packaged_path.is_file():
         return packaged_path
 
-    repo_path = Path(__file__).resolve().parents[4] / "themes" / filename
-    if repo_path.is_file():
-        return repo_path
+    repo_themes_dir = _find_repo_themes_dir(Path(__file__).resolve())
+    if repo_themes_dir is not None:
+        repo_path = repo_themes_dir / filename
+        if repo_path.is_file():
+            return repo_path
 
     try:
         package_root = resources.files("jakerdy.qlementine_themes")
@@ -177,6 +179,14 @@ def _theme_path(theme_name: str) -> Path:
             return Path(str(resource_path))
 
     raise FileNotFoundError(f"Theme file not found: {filename}")
+
+
+def _find_repo_themes_dir(start_path: Path) -> Path | None:
+    for parent in start_path.parents:
+        candidate = parent / "themes"
+        if (candidate / "_common_.json").is_file():
+            return candidate
+    return None
 
 
 def _load_qlementine_runtime(backend: QtBinding | None) -> _QlementineRuntime:
