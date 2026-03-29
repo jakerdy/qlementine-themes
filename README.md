@@ -21,6 +21,19 @@ A set of beautiful and varied [Qlementine](https://github.com/oclero/qlementine)
 | [Shrek](themes/shrek.json) | Dark | Playful swamp-green theme with earthy ogre-inspired tones |
 | [Alpine](themes/alpine.json) | Light | Crisp high-altitude palette with snowy backgrounds and cool blue accents |
 | [Hello Kitty](themes/hello-kitty.json) | Light | Soft pastel pink theme with candy-colored highlights |
+| [Nixie Dawn](themes/nixie-dawn.json) | Dark | Warm dark theme inspired by glowing nixie tubes, with deep brown backgrounds and vivid orange accents |
+| [Khaki](themes/khaki.json) | Dark | Rugged military-style interface palette with muted olive, sand, and khaki tones |
+| [Tron Light](themes/tron-light.json) | Light | Bright futuristic palette with icy cyan highlights and warm orange contrasts inspired by Tron Legacy |
+| [Tron Dark](themes/tron-dark.json) | Dark | Dark companion to Tron Light with neon cyan accents and glowing amber controls |
+| [Mint Cocktail](themes/mint-cocktail.json) | Light | Refreshing mint-based theme balanced by vivid purple accent colors |
+| [Old Terminal](themes/old-terminal.json) | Dark | High-contrast black-and-green terminal look with enough midtones to stay readable |
+| [Cold Light](themes/cold-light.json) | Light | Cool light variant with blue-tinted neutrals and crisp frosty accents |
+| [Cold Dark](themes/cold-dark.json) | Dark | Cool dark variant with steel-blue surfaces and icy highlights |
+| [Neutral Light](themes/neutral-light.json) | Light | Balanced low-saturation light palette for understated everyday interfaces |
+| [Neutral Dark](themes/neutral-dark.json) | Dark | Balanced low-saturation dark palette with restrained contrast and slate accents |
+| [Warm Light](themes/warm-light.json) | Light | Warm cream and sand palette suited to softer, less clinical light UIs |
+| [Warm Dark](themes/warm-dark.json) | Dark | Warm brown-leaning dark palette with amber accents and softened contrast |
+| [GrayTable](themes/graytable.json) | Light | Low-contrast gray theme inspired by the classic light 3ds Max interface |
 
 ## Usage
 
