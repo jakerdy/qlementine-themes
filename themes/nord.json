@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "author": "Qlementine Themes",
+    "name": "Nord",
+    "version": "1.0.0"
+  },
+
+  "backgroundColorMain1": "#3b4252",
+  "backgroundColorMain2": "#2e3440",
+  "backgroundColorMain3": "#434c5e",
+  "backgroundColorMain4": "#4c566a",
+
+  "backgroundColorWorkspace": "#252c38",
+  "backgroundColorTabBar": "#434c5e",
+
+  "borderColor": "#4c566a",
+  "borderColorDisabled": "#3b4252",
+  "borderColorHovered": "#5e6b82",
+  "borderColorPressed": "#6f7e96",
+
+  "focusColor": "#81a1c166",
+
+  "neutralColor": "#4c566a",
+  "neutralColorHovered": "#586275",
+  "neutralColorPressed": "#617080",
+  "neutralColorDisabled": "#3b4252",
+
+  "primaryColor": "#5e81ac",
+  "primaryColorHovered": "#6b90bb",
+  "primaryColorPressed": "#79a0cb",
+  "primaryColorDisabled": "#2a3a52",
+
+  "primaryAlternativeColor": "#4f6e99",
+  "primaryAlternativeColorDisabled": "#233045",
+  "primaryAlternativeColorHovered": "#567a9f",
+  "primaryAlternativeColorPressed": "#5d87ac",
+
+  "primaryColorForeground": "#eceff4",
+  "primaryColorForegroundDisabled": "#7a90aa",
+  "primaryColorForegroundHovered": "#eceff4",
+  "primaryColorForegroundPressed": "#eceff4",
+
+  "secondaryColor": "#d8dee9",
+  "secondaryColorHovered": "#e5e9f0",
+  "secondaryColorPressed": "#eceff4",
+  "secondaryColorDisabled": "#616e87",
+
+  "secondaryAlternativeColor": "#9099a7",
+  "secondaryAlternativeColorDisabled": "#616e87",
+  "secondaryAlternativeColorHovered": "#9daab8",
+  "secondaryAlternativeColorPressed": "#aab4c2",
+
+  "secondaryColorForeground": "#2e3440",
+  "secondaryColorForegroundDisabled": "#4c566a",
+  "secondaryColorForegroundHovered": "#2e3440",
+  "secondaryColorForegroundPressed": "#2e3440",
+
+  "semiTransparentColor1": "#ffffff0a",
+  "semiTransparentColor2": "#ffffff19",
+  "semiTransparentColor3": "#ffffff21",
+  "semiTransparentColor4": "#ffffff28",
+
+  "shadowColor1": "#00000030",
+  "shadowColor2": "#00000050",
+  "shadowColor3": "#00000070",
+
+  "statusColorError": "#bf616a",
+  "statusColorErrorHovered": "#c97078",
+  "statusColorErrorPressed": "#d47f87",
+  "statusColorErrorDisabled": "#3d2327",
+
+  "statusColorForeground": "#eceff4",
+  "statusColorForegroundHovered": "#eceff4",
+  "statusColorForegroundPressed": "#eceff4",
+  "statusColorForegroundDisabled": "#8090a580",
+
+  "statusColorInfo": "#88c0d0",
+  "statusColorInfoHovered": "#93c9da",
+  "statusColorInfoPressed": "#9ed2e3",
+  "statusColorInfoDisabled": "#263d45",
+
+  "statusColorSuccess": "#a3be8c",
+  "statusColorSuccessHovered": "#afc99a",
+  "statusColorSuccessPressed": "#bcd3a9",
+  "statusColorSuccessDisabled": "#2d3d28",
+
+  "statusColorWarning": "#ebcb8b",
+  "statusColorWarningHovered": "#efd49a",
+  "statusColorWarningPressed": "#f3dda9",
+  "statusColorWarningDisabled": "#45392b",
+
+  "useSystemFont": false,
+
+  "fontSize": 12,
+  "fontSizeMonospace": 13,
+  "fontSizeH1": 34,
+  "fontSizeH2": 26,
+  "fontSizeH3": 22,
+  "fontSizeH4": 18,
+  "fontSizeH5": 14,
+  "fontSizeS1": 10,
+
+  "spacing": 8,
+  "iconExtent": 16,
+
+  "animationDuration": 192,
+  "focusAnimationDuration": 384,
+  "sliderAnimationDuration": 96,
+
+  "borderRadius": 6.0,
+  "checkBoxBorderRadius": 4.0,
+  "menuItemBorderRadius": 4.0,
+  "menuBarItemBorderRadius": 2.0,
+
+  "borderWidth": 1,
+  "focusBorderWidth": 2,
+
+  "controlHeightLarge": 28,
+  "controlHeightMedium": 24,
+  "controlHeightSmall": 16,
+  "controlDefaultWidth": 96,
+
+  "dialMarkLength": 4,
+  "dialMarkThickness": 2,
+  "dialTickLength": 4,
+  "dialTickSpacing": 4,
+  "dialGrooveThickness": 4,
+
+  "sliderTickSize": 3,
+  "sliderTickSpacing": 2,
+  "sliderTickThickness": 1,
+  "sliderGrooveHeight": 4,
+
+  "progressBarGrooveHeight": 6,
+
+  "scrollBarThicknessFull": 12,
+  "scrollBarThicknessSmall": 6,
+  "scrollBarMargin": 0,
+
+  "tabBarPaddingTop": 4,
+  "tabBarTabMaxWidth": 0,
+  "tabBarTabMinWidth": 0
+}
