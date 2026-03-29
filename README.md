@@ -67,3 +67,7 @@ Themes are JSON files. All keys are optional — missing keys fall back to the b
 When adding a new theme to this repository, define only the `meta` block and the palette entries in the theme file. Put shared common defaults into `_common_.json` instead of copying them into every theme.
 
 See the [full theme documentation](https://oclero.github.io/qlementine/theme/) for the complete list of available keys.
+
+## Python helper package
+
+For PySide6/PyQt6 usage, see [`python-qt/`](python-qt/). It contains a small `uv`-managed package named `jakerdy.qlementine-themes` with typed helpers for loading `_common_`, merging a repository theme, applying custom overrides, and sending the final theme directly to PyQlementine.

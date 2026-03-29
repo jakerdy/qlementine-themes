@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=78.1.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jakerdy.qlementine-themes"
+version = "0.1.0"
+description = "Python helpers for loading and applying qlementine-themes with PySide6/PyQt6 Qlementine bindings."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "jakerdy" }]
+keywords = ["qlementine", "qt", "pyside6", "pyqt6", "theme"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: User Interfaces",
+]
+
+[tool.uv]
+package = true
+
+[tool.setuptools]
+include-package-data = true
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"jakerdy.qlementine_themes" = ["py.typed", "themes/*.json"]
