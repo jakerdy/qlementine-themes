@@ -42,17 +42,16 @@ Theme files are now split into:
 - [`themes/_common_.json`](themes/_common_.json) — shared common defaults (numeric parameters and other non-palette settings that are identical across themes)
 - `themes/*.json` — per-theme files that define only `meta` and color palette values
 
-If your application supports merging JSON objects, merge `_common_.json` with the selected theme file before loading it into Qlementine. If you only need the palette for a custom workflow, you can read the theme file by itself.
+If your application supports merging JSON objects, merge `_common_.json` with the selected theme file into one final theme JSON document. Then save that merged JSON as a file (or embed it as a Qt resource) and pass the path of that merged file to Qlementine. If you only need the palette for a custom workflow, you can read the theme file by itself.
 
-After merging, load the resulting JSON using Qlementine's `ThemeManager`:
+Once you have that merged file, load it using Qlementine:
 
 ```cpp
 #include <oclero/qlementine/style/QlementineStyle.hpp>
-#include <oclero/qlementine/utils/ThemeUtils.hpp>
 
 auto* style = new oclero::qlementine::QlementineStyle(qApp);
 qApp->setStyle(style);
-style->setThemeJsonPath(":/path/to/theme.json");
+style->setThemeJsonPath(":/themes/merged-theme.json");
 ```
 
 ## Theme format
