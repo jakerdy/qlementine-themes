@@ -10,7 +10,7 @@ from typing import Sequence
 from jakerdy.qlementine_themes import QtBinding, ThemeId, apply_theme, available_themes, load_theme
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_IMAGE_DIR = REPO_ROOT / "galery" / "img"
+DEFAULT_IMAGE_DIR = REPO_ROOT / "gallery" / "img"
 
 
 @dataclass(frozen=True)
@@ -20,7 +20,10 @@ class ScreenshotJob:
 
     @property
     def relative_path(self) -> Path:
-        return Path("galery") / "img" / self.output_path.name
+        try:
+            return self.output_path.relative_to(REPO_ROOT)
+        except ValueError:
+            return self.output_path
 
 
 def screenshot_jobs(
@@ -32,6 +35,15 @@ def screenshot_jobs(
         ScreenshotJob(theme_id=theme_id, output_path=output_dir / f"{theme_id.value}.png")
         for theme_id in selected_themes
     )
+
+
+def jobs_to_render(
+    output_dir: Path = DEFAULT_IMAGE_DIR,
+    themes: Sequence[ThemeId] | None = None,
+    *,
+    force: bool = False,
+) -> tuple[ScreenshotJob, ...]:
+    return tuple(job for job in screenshot_jobs(output_dir=output_dir, themes=themes) if force or not job.output_path.exists())
 
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
@@ -50,6 +62,11 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         action="append",
         default=[],
         help="Theme id to render. Repeat to render multiple themes. Defaults to all themes.",
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Overwrite screenshots even if they already exist.",
     )
     return parser.parse_args(argv)
 
@@ -251,12 +268,20 @@ def build_gallery_window():
     return window, theme_title, theme_caption
 
 
-def render_gallery(output_dir: Path, themes: Sequence[ThemeId]) -> tuple[Path, ...]:
+def render_gallery(output_dir: Path, themes: Sequence[ThemeId], *, force: bool = False) -> tuple[Path, ...]:
     os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
-    from PySide6.QtWidgets import QApplication
-
     output_dir.mkdir(parents=True, exist_ok=True)
+    pending_jobs = jobs_to_render(output_dir=output_dir, themes=themes, force=force)
+    skipped_jobs = tuple(job for job in screenshot_jobs(output_dir=output_dir, themes=themes) if job not in pending_jobs)
+
+    for job in skipped_jobs:
+        print(f"Skipped {job.relative_path.as_posix()} (already exists)")
+
+    if not pending_jobs:
+        return ()
+
+    from PySide6.QtWidgets import QApplication
 
     app = QApplication.instance() or QApplication([])
     window, theme_title, theme_caption = build_gallery_window()
@@ -264,7 +289,7 @@ def render_gallery(output_dir: Path, themes: Sequence[ThemeId]) -> tuple[Path, .
     app.processEvents()
 
     written_files: list[Path] = []
-    for job in screenshot_jobs(output_dir=output_dir, themes=themes):
+    for job in pending_jobs:
         metadata = load_theme(job.theme_id).get("meta", {})
         theme_name = metadata.get("name", job.theme_id.value.replace("-", " ").title())
         theme_title.setText(f"{theme_name} — controls gallery")
@@ -286,7 +311,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
     try:
         themes = resolve_themes(args.themes)
-        render_gallery(args.output_dir, themes)
+        render_gallery(args.output_dir, themes, force=args.force)
     except ValueError as exc:
         print(exc, file=sys.stderr)
         return 2

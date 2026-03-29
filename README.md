@@ -10,32 +10,46 @@ A set of beautiful and varied [Qlementine](https://github.com/oclero/qlementine)
 
 | Theme | Style | Description | `<img>` |
 |-------|-------|-------------|------------|
-| [Light](themes/light.json) | Light | Clean, classic light theme — the official Qlementine default | <img src="galery/img/light.png" alt="Light theme preview" width="320"> |
-| [Dark](themes/dark.json) | Dark | Neutral dark theme inspired by VS Code Dark+ | <img src="galery/img/dark.png" alt="Dark theme preview" width="320"> |
-| [Nord](themes/nord.json) | Dark | Arctic, north-bluish color palette from the [Nord](https://www.nordtheme.com/) project | <img src="galery/img/nord.png" alt="Nord theme preview" width="320"> |
-| [Solarized Dark](themes/solarized-dark.json) | Dark | Dark variant of Ethan Schoonover's popular [Solarized](https://ethanschoonover.com/solarized/) palette | <img src="galery/img/solarized-dark.png" alt="Solarized Dark theme preview" width="320"> |
-| [Solarized Light](themes/solarized-light.json) | Light | Light variant of Ethan Schoonover's popular [Solarized](https://ethanschoonover.com/solarized/) palette | <img src="galery/img/solarized-light.png" alt="Solarized Light theme preview" width="320"> |
-| [Dracula](themes/dracula.json) | Dark | Dark theme with vivid purple accents from the [Dracula](https://draculatheme.com/) project | <img src="galery/img/dracula.png" alt="Dracula theme preview" width="320"> |
-| [Tokyo Night](themes/tokyo-night.json) | Dark | Dark theme inspired by the lights of Tokyo at night, featuring cool blue accents | <img src="galery/img/tokyo-night.png" alt="Tokyo Night theme preview" width="320"> |
-| [Gruvbox](themes/gruvbox.json) | Dark | Warm retro groove palette inspired by the [Gruvbox](https://github.com/morhetz/gruvbox) project | <img src="galery/img/gruvbox.png" alt="Gruvbox theme preview" width="320"> |
-| [Shrek](themes/shrek.json) | Dark | Playful swamp-green theme with earthy ogre-inspired tones | <img src="galery/img/shrek.png" alt="Shrek theme preview" width="320"> |
-| [Alpine](themes/alpine.json) | Light | Crisp high-altitude palette with snowy backgrounds and cool blue accents | <img src="galery/img/alpine.png" alt="Alpine theme preview" width="320"> |
-| [Hello Kitty](themes/hello-kitty.json) | Light | Soft pastel pink theme with candy-colored highlights | <img src="galery/img/hello-kitty.png" alt="Hello Kitty theme preview" width="320"> |
-| [Nixie Dawn](themes/nixie-dawn.json) | Dark | Warm dark theme inspired by glowing nixie tubes, with deep brown backgrounds and vivid orange accents | <img src="galery/img/nixie-dawn.png" alt="Nixie Dawn theme preview" width="320"> |
-| [Khaki](themes/khaki.json) | Dark | Rugged military-style interface palette with muted olive, sand, and khaki tones | <img src="galery/img/khaki.png" alt="Khaki theme preview" width="320"> |
-| [Tron Light](themes/tron-light.json) | Light | Bright futuristic palette with icy cyan highlights and warm orange contrasts inspired by Tron Legacy | <img src="galery/img/tron-light.png" alt="Tron Light theme preview" width="320"> |
-| [Tron Dark](themes/tron-dark.json) | Dark | Dark companion to Tron Light with neon cyan accents and glowing amber controls | <img src="galery/img/tron-dark.png" alt="Tron Dark theme preview" width="320"> |
-| [Mint Cocktail](themes/mint-cocktail.json) | Light | Refreshing mint-based theme balanced by vivid purple accent colors | <img src="galery/img/mint-cocktail.png" alt="Mint Cocktail theme preview" width="320"> |
-| [Old Terminal](themes/old-terminal.json) | Dark | High-contrast black-and-green terminal look with enough midtones to stay readable | <img src="galery/img/old-terminal.png" alt="Old Terminal theme preview" width="320"> |
-| [Cold Light](themes/cold-light.json) | Light | Cool light variant with blue-tinted neutrals and crisp frosty accents | <img src="galery/img/cold-light.png" alt="Cold Light theme preview" width="320"> |
-| [Cold Dark](themes/cold-dark.json) | Dark | Cool dark variant with steel-blue surfaces and icy highlights | <img src="galery/img/cold-dark.png" alt="Cold Dark theme preview" width="320"> |
-| [Neutral Light](themes/neutral-light.json) | Light | Balanced low-saturation light palette for understated everyday interfaces | <img src="galery/img/neutral-light.png" alt="Neutral Light theme preview" width="320"> |
-| [Neutral Dark](themes/neutral-dark.json) | Dark | Balanced low-saturation dark palette with restrained contrast and slate accents | <img src="galery/img/neutral-dark.png" alt="Neutral Dark theme preview" width="320"> |
-| [Warm Light](themes/warm-light.json) | Light | Warm cream and sand palette suited to softer, less clinical light UIs | <img src="galery/img/warm-light.png" alt="Warm Light theme preview" width="320"> |
-| [Warm Dark](themes/warm-dark.json) | Dark | Warm brown-leaning dark palette with amber accents and softened contrast | <img src="galery/img/warm-dark.png" alt="Warm Dark theme preview" width="320"> |
-| [GrayTable](themes/graytable.json) | Light | Low-contrast gray theme inspired by the classic light 3ds Max interface | <img src="galery/img/graytable.png" alt="GrayTable theme preview" width="320"> |
+| [Light](themes/light.json) | Light | Clean, classic light theme — the official Qlementine default | ![Light theme preview](gallery/img/light.png) |
+| [Dark](themes/dark.json) | Dark | Neutral dark theme inspired by VS Code Dark+ | ![Dark theme preview](gallery/img/dark.png) |
+| [Nord](themes/nord.json) | Dark | Arctic, north-bluish color palette from the [Nord](https://www.nordtheme.com/) project | ![Nord theme preview](gallery/img/nord.png) |
+| [Solarized Dark](themes/solarized-dark.json) | Dark | Dark variant of Ethan Schoonover's popular [Solarized](https://ethanschoonover.com/solarized/) palette | ![Solarized Dark theme preview](gallery/img/solarized-dark.png) |
+| [Solarized Light](themes/solarized-light.json) | Light | Light variant of Ethan Schoonover's popular [Solarized](https://ethanschoonover.com/solarized/) palette | ![Solarized Light theme preview](gallery/img/solarized-light.png) |
+| [Dracula](themes/dracula.json) | Dark | Dark theme with vivid purple accents from the [Dracula](https://draculatheme.com/) project | ![Dracula theme preview](gallery/img/dracula.png) |
+| [Tokyo Night](themes/tokyo-night.json) | Dark | Dark theme inspired by the lights of Tokyo at night, featuring cool blue accents | ![Tokyo Night theme preview](gallery/img/tokyo-night.png) |
+| [Gruvbox](themes/gruvbox.json) | Dark | Warm retro groove palette inspired by the [Gruvbox](https://github.com/morhetz/gruvbox) project | ![Gruvbox theme preview](gallery/img/gruvbox.png) |
+| [Shrek](themes/shrek.json) | Dark | Playful swamp-green theme with earthy ogre-inspired tones | ![Shrek theme preview](gallery/img/shrek.png) |
+| [Alpine](themes/alpine.json) | Light | Crisp high-altitude palette with snowy backgrounds and cool blue accents | ![Alpine theme preview](gallery/img/alpine.png) |
+| [Hello Kitty](themes/hello-kitty.json) | Light | Soft pastel pink theme with candy-colored highlights | ![Hello Kitty theme preview](gallery/img/hello-kitty.png) |
+| [Nixie Dawn](themes/nixie-dawn.json) | Dark | Warm dark theme inspired by glowing nixie tubes, with deep brown backgrounds and vivid orange accents | ![Nixie Dawn theme preview](gallery/img/nixie-dawn.png) |
+| [Khaki](themes/khaki.json) | Dark | Rugged military-style interface palette with muted olive, sand, and khaki tones | ![Khaki theme preview](gallery/img/khaki.png) |
+| [Tron Light](themes/tron-light.json) | Light | Bright futuristic palette with icy cyan highlights and warm orange contrasts inspired by Tron Legacy | ![Tron Light theme preview](gallery/img/tron-light.png) |
+| [Tron Dark](themes/tron-dark.json) | Dark | Dark companion to Tron Light with neon cyan accents and glowing amber controls | ![Tron Dark theme preview](gallery/img/tron-dark.png) |
+| [Mint Cocktail](themes/mint-cocktail.json) | Light | Refreshing mint-based theme balanced by vivid purple accent colors | ![Mint Cocktail theme preview](gallery/img/mint-cocktail.png) |
+| [Old Terminal](themes/old-terminal.json) | Dark | High-contrast black-and-green terminal look with enough midtones to stay readable | ![Old Terminal theme preview](gallery/img/old-terminal.png) |
+| [Cold Light](themes/cold-light.json) | Light | Cool light variant with blue-tinted neutrals and crisp frosty accents | ![Cold Light theme preview](gallery/img/cold-light.png) |
+| [Cold Dark](themes/cold-dark.json) | Dark | Cool dark variant with steel-blue surfaces and icy highlights | ![Cold Dark theme preview](gallery/img/cold-dark.png) |
+| [Neutral Light](themes/neutral-light.json) | Light | Balanced low-saturation light palette for understated everyday interfaces | ![Neutral Light theme preview](gallery/img/neutral-light.png) |
+| [Neutral Dark](themes/neutral-dark.json) | Dark | Balanced low-saturation dark palette with restrained contrast and slate accents | ![Neutral Dark theme preview](gallery/img/neutral-dark.png) |
+| [Warm Light](themes/warm-light.json) | Light | Warm cream and sand palette suited to softer, less clinical light UIs | ![Warm Light theme preview](gallery/img/warm-light.png) |
+| [Warm Dark](themes/warm-dark.json) | Dark | Warm brown-leaning dark palette with amber accents and softened contrast | ![Warm Dark theme preview](gallery/img/warm-dark.png) |
+| [GrayTable](themes/graytable.json) | Light | Low-contrast gray theme inspired by the classic light 3ds Max interface | ![GrayTable theme preview](gallery/img/graytable.png) |
 
-Gallery screenshots are generated by [`galery/src/generate_gallery.py`](galery/src/generate_gallery.py) and written to [`galery/img/`](galery/img/).
+Gallery screenshots are generated by [`gallery/src/generate_gallery.py`](gallery/src/generate_gallery.py) and written to [`gallery/img/`](gallery/img/).
+
+To generate only the screenshots that do not exist yet:
+
+```bash
+PYTHONPATH=python-qt/src python gallery/src/generate_gallery.py
+```
+
+The generator skips any existing PNG by default, which is useful after adding a new theme because it leaves already-reviewed screenshots untouched.
+
+To rebuild every screenshot regardless of whether the PNG already exists:
+
+```bash
+PYTHONPATH=python-qt/src python gallery/src/generate_gallery.py --force
+```
 
 ## Usage
 
