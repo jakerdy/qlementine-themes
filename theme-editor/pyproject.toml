@@ -1,0 +1,9 @@
+[project]
+name = "qlementine-theme-editor"
+version = "0.1.0"
+description = "Theme editor for Qlementine themes"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pyside6-qlementine>=1.4.3.0rc5",
+]
