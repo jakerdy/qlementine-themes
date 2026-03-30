@@ -38,7 +38,9 @@ def screenshot_jobs(
 ) -> tuple[ScreenshotJob, ...]:
     selected_themes = tuple(themes or available_themes())
     return tuple(
-        ScreenshotJob(theme_id=theme_id, output_path=output_dir / f"{theme_id.value}.png")
+        ScreenshotJob(
+            theme_id=theme_id, output_path=output_dir / f"{theme_id.value}.png"
+        )
         for theme_id in selected_themes
     )
 
@@ -49,7 +51,11 @@ def jobs_to_render(
     *,
     force: bool = False,
 ) -> tuple[ScreenshotJob, ...]:
-    return tuple(job for job in screenshot_jobs(output_dir=output_dir, themes=themes) if force or not job.output_path.exists())
+    return tuple(
+        job
+        for job in screenshot_jobs(output_dir=output_dir, themes=themes)
+        if force or not job.output_path.exists()
+    )
 
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
@@ -119,7 +125,7 @@ def build_gallery_window():
     window.resize(1400, 920)
 
     root_layout = QVBoxLayout(window)
-    root_layout.setContentsMargins(24, 24, 24, 24)
+    # root_layout.setContentsMargins(24, 24, 24, 24)
     root_layout.setSpacing(16)
 
     theme_title = QLabel("Theme preview")
@@ -165,7 +171,9 @@ def build_gallery_window():
     inputs_layout.addWidget(spin_box, 2, 1)
     inputs_layout.addWidget(QLabel("Notes"), 3, 0, Qt.AlignmentFlag.AlignTop)
     notes_edit = QPlainTextEdit()
-    notes_edit.setPlainText("Previewing all repository themes.\nDisabled states and view widgets are shown too.")
+    notes_edit.setPlainText(
+        "Previewing all repository themes.\nDisabled states and view widgets are shown too."
+    )
     notes_edit.setMaximumBlockCount(10)
     inputs_layout.addWidget(notes_edit, 3, 1)
 
@@ -274,12 +282,18 @@ def build_gallery_window():
     return window, theme_title, theme_caption
 
 
-def render_gallery(output_dir: Path, themes: Sequence[ThemeId], *, force: bool = False) -> tuple[Path, ...]:
+def render_gallery(
+    output_dir: Path, themes: Sequence[ThemeId], *, force: bool = False
+) -> tuple[Path, ...]:
     os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
     output_dir.mkdir(parents=True, exist_ok=True)
     pending_jobs = jobs_to_render(output_dir=output_dir, themes=themes, force=force)
-    skipped_jobs = tuple(job for job in screenshot_jobs(output_dir=output_dir, themes=themes) if job not in pending_jobs)
+    skipped_jobs = tuple(
+        job
+        for job in screenshot_jobs(output_dir=output_dir, themes=themes)
+        if job not in pending_jobs
+    )
 
     for job in skipped_jobs:
         print(f"Skipped {job.relative_path.as_posix()} (already exists)")

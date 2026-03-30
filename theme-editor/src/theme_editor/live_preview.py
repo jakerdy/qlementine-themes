@@ -18,8 +18,8 @@ from PySide6.QtWidgets import (
     QHBoxLayout,
     QHeaderView,
     QKeySequenceEdit,
-    QLCDNumber,
     QLabel,
+    QLCDNumber,
     QLineEdit,
     QListView,
     QListWidget,
@@ -67,7 +67,7 @@ class LivePreviewWidget(QWidget):
         self.setMinimumWidth(860)
 
         root_layout = QVBoxLayout(self)
-        root_layout.setContentsMargins(18, 18, 18, 18)
+        root_layout.setContentsMargins(4, 4, 15, 4)
         root_layout.setSpacing(16)
 
         self.theme_title = self._make_heading(
@@ -144,7 +144,6 @@ class LivePreviewWidget(QWidget):
     ) -> QWidget:
         page = QWidget(self)
         layout = QVBoxLayout(page)
-        layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(12)
         layout.addWidget(self._make_heading(title, 16, QFont.Weight.Bold))
 
@@ -295,9 +294,7 @@ class LivePreviewWidget(QWidget):
         export_button = QToolButton(actions_group)
         export_button.setText("Export")
         actions_layout.addWidget(export_button, 1, 0)
-        actions_layout.addWidget(
-            QCheckBox("Live preview enabled", actions_group), 1, 1
-        )
+        actions_layout.addWidget(QCheckBox("Live preview enabled", actions_group), 1, 1)
         selected_radio = QRadioButton("Gallery mode", actions_group)
         selected_radio.setChecked(True)
         actions_layout.addWidget(selected_radio, 2, 0)

@@ -173,6 +173,7 @@ class ThemeEditorWidget(QWidget):
             QFormLayout.FieldGrowthPolicy.AllNonFixedFieldsGrow
         )
         form_layout.setRowWrapPolicy(QFormLayout.RowWrapPolicy.DontWrapRows)
+        form_layout.setContentsMargins(4, 4, 15, 4)
 
         self._setup_metadata_editors(form_layout, v_spacing)
         self._setup_color_editors(form_layout, v_spacing)
