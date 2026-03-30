@@ -6,6 +6,7 @@ from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
 from .constants import APP_ICON_PATH, APP_NAME, APP_USER_MODEL_ID
+from .fonts import install_application_fonts
 from .main_window import ThemeEditorWindow
 from .theme_utils import ensure_qlementine_style
 
@@ -19,6 +20,7 @@ def main() -> int:
     app = QApplication(sys.argv)
     app.setOrganizationName("Qlementine Themes")
     app.setApplicationName(APP_NAME)
+    install_application_fonts(app)
     ensure_qlementine_style(app)
     if APP_ICON_PATH.exists():
         app.setWindowIcon(QIcon(str(APP_ICON_PATH)))

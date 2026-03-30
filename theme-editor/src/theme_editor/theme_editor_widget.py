@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import cast
 
 from PySide6.QtCore import QSettings, Qt, Signal
-from PySide6.QtGui import QColor, QFontDatabase
+from PySide6.QtGui import QColor
 from PySide6.QtWidgets import (
     QFileDialog,
     QFormLayout,
@@ -21,6 +21,7 @@ from PySide6Qlementine import ColorEditor as QlementineColorEditor
 from PySide6Qlementine import ColorMode, Theme
 
 from .constants import DEFAULT_FILE_NAME, PREVIOUS_PATH_SETTINGS_KEY
+from .fonts import monospace_font
 from .schema import ALPHA_COLOR_FIELDS, COLOR_SECTIONS, METADATA_FIELDS
 from .theme_utils import copy_theme, theme_to_bytes
 
@@ -52,7 +53,7 @@ def create_label_column(title: str, description: str, parent: QWidget) -> QWidge
     )
 
     title_label = QLabel(title, column)
-    mono_font = QFontDatabase.systemFont(QFontDatabase.SystemFont.FixedFont)
+    mono_font = monospace_font()
     mono_font.setPixelSize(14)
     title_label.setFont(mono_font)
     title_label.setWordWrap(False)
