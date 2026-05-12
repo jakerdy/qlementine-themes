@@ -23,6 +23,9 @@ classifiers = [
   "Topic :: Software Development :: User Interfaces",
 ]
 
+[project.entry-points.pyinstaller40]
+hook-dirs = "jakerdy.qlementine_themes.__pyinstaller:get_hook_dirs"
+
 [tool.uv]
 package = true
 

@@ -13,6 +13,7 @@ __all__ = [
     "ThemeData",
     "ThemeMeta",
     "ThemeValue",
+    "add_theme_menu",
     "apply_theme",
     "available_themes",
     "build_theme",
@@ -142,6 +143,59 @@ def apply_theme(
     return style
 
 
+def add_theme_menu(
+    menu_bar: Any,
+    app: QApplicationProtocol,
+    *,
+    title: str = "Theme",
+    initial_theme: ThemeId | str | None = None,
+    overrides: ThemeLayer | None = None,
+    backend: QtBinding | None = None,
+    on_theme_changed: Any | None = None,
+) -> Any:
+    initial_theme_id = _coerce_theme_id(initial_theme or available_themes()[0])
+    qt_gui_module_name, qt_widgets_module_name = _menu_module_names(backend)
+    try:
+        qt_gui = import_module(qt_gui_module_name)
+        qt_widgets = import_module(qt_widgets_module_name)
+    except ModuleNotFoundError as exc:
+        raise ModuleNotFoundError(
+            "Could not import Qt menu classes. Install PySide6 or PyQt6 together with the matching "
+            "Qlementine binding."
+        ) from exc
+
+    action_group = getattr(qt_gui, "QActionGroup")(menu_bar)
+    action_group.setExclusive(True)
+    menu = menu_bar.addMenu(title)
+    theme_actions: dict[ThemeId, Any] = {}
+
+    for theme_id in available_themes():
+        theme_name = _theme_display_name(theme_id)
+        action = getattr(qt_gui, "QAction")(theme_name, menu)
+        action.setCheckable(True)
+        action.setChecked(theme_id is initial_theme_id)
+        action_group.addAction(action)
+        menu.addAction(action)
+        theme_actions[theme_id] = action
+
+        def _handle_triggered(checked: bool, selected_theme: ThemeId = theme_id) -> None:
+            if not checked:
+                return
+            apply_theme(app, selected_theme, overrides=overrides, backend=backend)
+            if on_theme_changed is not None:
+                on_theme_changed(selected_theme)
+
+        action.triggered.connect(_handle_triggered)
+
+    if not theme_actions[initial_theme_id].isChecked():
+        theme_actions[initial_theme_id].setChecked(True)
+
+    apply_theme(app, initial_theme_id, overrides=overrides, backend=backend)
+    setattr(menu, "_qlementine_theme_actions", theme_actions)
+    setattr(menu, "_qlementine_theme_action_group", action_group)
+    return menu
+
+
 def _load_json_file(path: Path) -> ThemeData:
     with path.open("r", encoding="utf-8") as file_obj:
         return cast(ThemeData, json.load(file_obj))
@@ -155,6 +209,19 @@ def _normalize_theme_id(theme_id: ThemeId | str) -> str:
         return ThemeId(normalized).value
     except ValueError as exc:
         raise ValueError(f"Unknown theme id: {theme_id}") from exc
+
+
+def _coerce_theme_id(theme_id: ThemeId | str) -> ThemeId:
+    return ThemeId(_normalize_theme_id(theme_id))
+
+
+def _theme_display_name(theme_id: ThemeId) -> str:
+    meta = load_theme(theme_id).get("meta")
+    if isinstance(meta, Mapping):
+        name = meta.get("name")
+        if isinstance(name, str) and name:
+            return name
+    return theme_id.value.replace("-", " ").title()
 
 
 def _theme_path(theme_name: str) -> Path:
@@ -216,3 +283,21 @@ def _module_names(binding: QtBinding) -> tuple[str, str]:
     if binding is QtBinding.PYSIDE6:
         return "PySide6.QtCore", "PySide6Qlementine"
     return "PyQt6.QtCore", "PyQt6Qlementine"
+
+
+def _menu_module_names(binding: QtBinding | None) -> tuple[str, str]:
+    resolved_binding = binding or _detect_qt_binding()
+    if resolved_binding is QtBinding.PYSIDE6:
+        return "PySide6.QtGui", "PySide6.QtWidgets"
+    return "PyQt6.QtGui", "PyQt6.QtWidgets"
+
+
+def _detect_qt_binding() -> QtBinding:
+    for candidate in (QtBinding.PYSIDE6, QtBinding.PYQT6):
+        core_module_name, _ = _module_names(candidate)
+        try:
+            import_module(core_module_name)
+        except ModuleNotFoundError:
+            continue
+        return candidate
+    raise ModuleNotFoundError("Could not import PySide6 or PyQt6.")
