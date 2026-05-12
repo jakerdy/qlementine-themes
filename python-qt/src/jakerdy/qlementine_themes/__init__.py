@@ -63,6 +63,9 @@ class ThemeId(str, Enum):
     WARM_LIGHT = "warm-light"
 
 
+ThemeSelection: TypeAlias = ThemeId | str
+
+
 class QtBinding(str, Enum):
     PYQT6 = "pyqt6"
     PYSIDE6 = "pyside6"
@@ -149,11 +152,19 @@ def add_theme_menu(
     *,
     title: str = "Theme",
     initial_theme: ThemeId | str | None = None,
+    include_system_theme: bool = False,
+    system_theme_id: str = "system",
+    system_theme_label: str = "System",
     overrides: ThemeLayer | None = None,
     backend: QtBinding | None = None,
+    resolve_theme: Any | None = None,
     on_theme_changed: Any | None = None,
 ) -> Any:
-    initial_theme_id = _coerce_theme_id(initial_theme or available_themes()[0])
+    initial_selection = _normalize_theme_selection(
+        initial_theme or available_themes()[0],
+        include_system_theme=include_system_theme,
+        system_theme_id=system_theme_id,
+    )
     qt_gui_module_name, qt_widgets_module_name = _menu_module_names(backend)
     try:
         qt_gui = import_module(qt_gui_module_name)
@@ -167,13 +178,31 @@ def add_theme_menu(
     action_group = getattr(qt_gui, "QActionGroup")(menu_bar)
     action_group.setExclusive(True)
     menu = menu_bar.addMenu(title)
-    theme_actions: dict[ThemeId, Any] = {}
+    theme_actions: dict[ThemeSelection, Any] = {}
+
+    if include_system_theme:
+        system_action = getattr(qt_gui, "QAction")(system_theme_label, menu)
+        system_action.setCheckable(True)
+        system_action.setChecked(initial_selection == system_theme_id)
+        action_group.addAction(system_action)
+        menu.addAction(system_action)
+        theme_actions[system_theme_id] = system_action
+
+        def _handle_system_triggered(checked: bool) -> None:
+            if not checked:
+                return
+            resolved_theme = _resolve_theme_selection(system_theme_id, resolve_theme)
+            apply_theme(app, resolved_theme, overrides=overrides, backend=backend)
+            if on_theme_changed is not None:
+                on_theme_changed(system_theme_id)
+
+        system_action.triggered.connect(_handle_system_triggered)
 
     for theme_id in available_themes():
         theme_name = _theme_display_name(theme_id)
         action = getattr(qt_gui, "QAction")(theme_name, menu)
         action.setCheckable(True)
-        action.setChecked(theme_id is initial_theme_id)
+        action.setChecked(theme_id == initial_selection)
         action_group.addAction(action)
         menu.addAction(action)
         theme_actions[theme_id] = action
@@ -181,16 +210,22 @@ def add_theme_menu(
         def _handle_triggered(checked: bool, selected_theme: ThemeId = theme_id) -> None:
             if not checked:
                 return
-            apply_theme(app, selected_theme, overrides=overrides, backend=backend)
+            resolved_theme = _resolve_theme_selection(selected_theme, resolve_theme)
+            apply_theme(app, resolved_theme, overrides=overrides, backend=backend)
             if on_theme_changed is not None:
                 on_theme_changed(selected_theme)
 
         action.triggered.connect(_handle_triggered)
 
-    if not theme_actions[initial_theme_id].isChecked():
-        theme_actions[initial_theme_id].setChecked(True)
+    if not theme_actions[initial_selection].isChecked():
+        theme_actions[initial_selection].setChecked(True)
 
-    apply_theme(app, initial_theme_id, overrides=overrides, backend=backend)
+    apply_theme(
+        app,
+        _resolve_theme_selection(initial_selection, resolve_theme),
+        overrides=overrides,
+        backend=backend,
+    )
     setattr(menu, "_qlementine_theme_actions", theme_actions)
     setattr(menu, "_qlementine_theme_action_group", action_group)
     return menu
@@ -213,6 +248,23 @@ def _normalize_theme_id(theme_id: ThemeId | str) -> str:
 
 def _coerce_theme_id(theme_id: ThemeId | str) -> ThemeId:
     return ThemeId(_normalize_theme_id(theme_id))
+
+
+def _normalize_theme_selection(
+    theme: ThemeSelection,
+    *,
+    include_system_theme: bool,
+    system_theme_id: str,
+) -> ThemeSelection:
+    if include_system_theme and theme == system_theme_id:
+        return system_theme_id
+    return _coerce_theme_id(theme)
+
+
+def _resolve_theme_selection(selection: ThemeSelection, resolver: Any | None) -> ThemeId | str | ThemeLayer:
+    if resolver is None:
+        return selection
+    return cast(ThemeId | str | ThemeLayer, resolver(selection))
 
 
 def _theme_display_name(theme_id: ThemeId) -> str:

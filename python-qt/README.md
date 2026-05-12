@@ -20,7 +20,7 @@ In practice, this package adds:
 - typed Python API for loading repository themes
 - composition helpers for `_common_` + selected theme + app overrides
 - direct application of the merged theme to a running Qt app
-- a ready-made main-menu theme switcher utility
+- a ready-made main-menu theme switcher utility, including optional `System` mode wiring
 - package data and PyInstaller integration so theme JSON files are bundled automatically
 
 ## Installation
@@ -42,8 +42,9 @@ uv add PyQt6 PyQt6-Qlementine
 ## Golden Example
 
 This is the recommended integration pattern for both developers and agents. It
-shows the full intended flow: select a repository theme, add app-specific
-overrides, apply the result, and expose runtime switching through the main menu.
+shows the full intended flow: resolve a `System` theme dynamically, add
+app-specific overrides, apply the result, and expose runtime switching through
+the main menu.
 
 ```python
 from PySide6.QtWidgets import QApplication, QLabel, QMainWindow
@@ -57,6 +58,12 @@ from jakerdy.qlementine_themes import (
 )
 
 
+def resolve_theme(selection: ThemeId | str) -> ThemeId:
+    if selection == "system":
+        return ThemeId.NEUTRAL_DARK
+    return ThemeId(selection)
+
+
 def main() -> int:
     app = QApplication([])
     window = QMainWindow()
@@ -68,15 +75,17 @@ def main() -> int:
         "primaryColorHovered": "#93b5a6",
     }
 
-    initial_theme = ThemeId.GRUVBOX
-    merged_theme = build_theme(initial_theme, theme_overrides)
+    initial_theme = "system"
+    merged_theme = build_theme(resolve_theme(initial_theme), theme_overrides)
     apply_theme(app, merged_theme, backend=QtBinding.PYSIDE6)
 
     add_theme_menu(
         window.menuBar(),
         app,
         title="Themes",
+        include_system_theme=True,
         initial_theme=initial_theme,
+        resolve_theme=resolve_theme,
         overrides=theme_overrides,
         backend=QtBinding.PYSIDE6,
     )
@@ -94,7 +103,7 @@ if __name__ == "__main__":
 
 Use this pattern when you need:
 
-- a stable default theme at startup
+- a stable default theme at startup, including a `System` option
 - optional app-level overrides on top of a repository theme
 - a menu for runtime switching without rewriting QAction boilerplate
 
@@ -112,7 +121,7 @@ Use this pattern when you need:
 
 - `create_qlementine_theme(theme, backend=None)` converts a Python mapping into the Qlementine theme object.
 - `apply_theme(app, theme, overrides=None, backend=None)` ensures the app has a Qlementine style and applies the final theme.
-- `add_theme_menu(menu_bar, app, ...)` creates a ready-to-use menu with checkable actions for all built-in themes.
+- `add_theme_menu(menu_bar, app, ...)` creates a ready-to-use menu with checkable actions for all built-in themes and can optionally include a `System` entry.
 
 ### Enums And Types
 

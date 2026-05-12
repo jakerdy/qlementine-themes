@@ -84,7 +84,7 @@ class ThemeApiTests(unittest.TestCase):
         self.assertTrue(hook_path.is_file())
 
     def test_add_theme_menu_applies_initial_theme_and_reacts_to_selection(self) -> None:
-        changes: list[ThemeId] = []
+        changes: list[ThemeId | str] = []
         app = object()
         menu_bar = _FakeMenuBar()
 
@@ -130,6 +130,56 @@ class ThemeApiTests(unittest.TestCase):
     def test_add_theme_menu_rejects_unknown_initial_theme(self) -> None:
         with self.assertRaisesRegex(ValueError, "Unknown theme id"):
             add_theme_menu(_FakeMenuBar(), object(), initial_theme="missing-theme")
+
+    def test_add_theme_menu_supports_system_selection(self) -> None:
+        changes: list[ThemeId | str] = []
+        app = object()
+        menu_bar = _FakeMenuBar()
+
+        with (
+            mock.patch.object(qlementine_themes, "available_themes", return_value=(ThemeId.GRUVBOX, ThemeId.NORD)),
+            mock.patch.object(
+                qlementine_themes,
+                "load_theme",
+                side_effect=[
+                    {"meta": {"name": "Gruvbox"}},
+                    {"meta": {"name": "Nord"}},
+                ],
+            ),
+            mock.patch.object(qlementine_themes, "_menu_module_names", return_value=("fake.qtgui", "fake.qtwidgets")),
+            mock.patch.object(
+                qlementine_themes,
+                "import_module",
+                side_effect=lambda module_name: _FakeQtGui if module_name == "fake.qtgui" else _FakeQtWidgets,
+            ),
+            mock.patch.object(qlementine_themes, "apply_theme") as apply_theme_mock,
+        ):
+            menu = add_theme_menu(
+                menu_bar,
+                app,
+                title="Themes",
+                initial_theme="system",
+                include_system_theme=True,
+                resolve_theme=lambda selection: ThemeId.NORD if selection == "system" else selection,
+                on_theme_changed=changes.append,
+            )
+
+            self.assertEqual([action.text for action in menu.actions], ["System", "Gruvbox", "Nord"])
+            self.assertTrue(menu.actions[0].isChecked())
+            apply_theme_mock.assert_called_once_with(app, ThemeId.NORD, overrides=None, backend=None)
+
+            menu.actions[2].trigger()
+            menu.actions[0].trigger()
+
+            self.assertEqual(
+                apply_theme_mock.call_args_list,
+                [
+                    mock.call(app, ThemeId.NORD, overrides=None, backend=None),
+                    mock.call(app, ThemeId.NORD, overrides=None, backend=None),
+                    mock.call(app, ThemeId.NORD, overrides=None, backend=None),
+                ],
+            )
+            self.assertEqual(changes, [ThemeId.NORD, "system"])
 
 
 class _FakeSignal:
